@@ -1,4 +1,8 @@
 .header-wrapper {
+    grid-row:   header-s/header-e;
+    grid-column: content-s/ content-e;
+
+
     display: grid;
     
     grid-template-columns: [s] 1fr [e];
@@ -6,7 +10,7 @@
 
 
     &__title{
-        grid-row: [title-s]/[title-e]
+        grid-row: [title-s]/[title-e];
     }
     &__subtitle {
         grid-row: sub-s/sub-e;
