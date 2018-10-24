@@ -7,8 +7,9 @@ import TextLink from '../textlinks';
 
 class SigninForm extends Component {
     render() {
+        const { handleSubmit } = this.props;
         return (
-            <form className='sign-in-form'>
+            <form onSubmit={handleSubmit} className='sign-in-form'>
                 <FormTitle className="sign-in-form__title" text="login" />
                 <Field 
                 className="sign-in-form__email" 
@@ -31,7 +32,7 @@ class SigninForm extends Component {
                     className="sign-in-form__login"
                     placeholder="login"
                     name="login"
-                    type="submit"
+                
                     title="login"
                     component={FormButton}
                 />

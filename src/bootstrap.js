@@ -6,12 +6,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware()(compose((window.DevtoolsExtention ? window.DevtoolsExtention(): f => f)(createStore)));
+import Thunk from 'redux-thunk';
+
+const createStoreWithMiddleware = applyMiddleware(Thunk)(compose((window.devToolsExtension ? window.devToolsExtension(): f => f)(createStore)));
 
 import './style/main.scss';
 
 import signin from './components/auth/signin';
 import signup from './components/auth/signup';
+
 import Layout from './components/Layout';
 
 

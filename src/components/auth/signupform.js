@@ -54,7 +54,6 @@ class SignupForm extends Component {
                     className="sign-up-form__create-account"
                     placeholder="Create account"
                     name="login"
-                    type="submit"
                     title="Create account"
                     component={FormButton}
                 />
