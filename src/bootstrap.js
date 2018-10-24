@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import reducers from './reducers';
 
@@ -12,24 +12,33 @@ const createStoreWithMiddleware = applyMiddleware(Thunk)(compose((window.devTool
 
 import './style/main.scss';
 
+import Layout from './components/Layout';
+
+//auth
 import signin from './components/auth/signin';
 import signup from './components/auth/signup';
+import history from './history';
+import requireAuth from './components/requireAuth';
 
-import Layout from './components/Layout';
+//dashboad
+import Dashboard from './components/dashboard';
+
+
 
 
 function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter>
+      <Router history={history}>
         <Switch>
           <Layout>
           <Route path='/' exact component={signin}/>
           <Route path='/signup' exact component={signup} />
-            <Route path='/signin' exact component={signin} />
+          <Route path='/signin' exact component={signin} />
+          <Route path='/Dashboard' exact component={requireAuth(Dashboard)} />
           </Layout>
         </Switch>
-      </BrowserRouter>
+      </Router>
     </Provider>
     , document.querySelector('.app-wrapper'));
 }

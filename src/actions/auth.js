@@ -13,6 +13,7 @@ export function signUp(fields, success) {
         .then(response => {
             const { token } = response.data;
             localStorage.setItem('token', token);
+
             dispatch({
                 type: AUTHENTICATE_USER,
                 payload: response.data
@@ -32,6 +33,11 @@ export function signIn(fields, success) {
         axios.post(`${ ROOT_URL }/signIn`, fields)
         .then(response => {
             console.log(response.data);
+   
+            dispatch({
+                type: AUTHENTICATE_USER,
+                payload: response.data
+            })
             success()
         })
     }
