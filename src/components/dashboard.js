@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+
+import React, { Component } from "react";
+
 import TabNav from './tabnav';
+import NewsletterGrid from "./newsletter/newsletter-Grid";
 
 class Dashboard extends Component {
+
     constructor(props) {
         super(props);
 
@@ -10,27 +14,39 @@ class Dashboard extends Component {
                 {
                     title: 'Newsletter',
                     active: true,
-                    component: <h4>Newsletter</h4>
+                    component: <NewsletterGrid />
                 },
                 {
                     title: 'Requests',
                     active: false,
-                    component: <h4>Requests</h4>
+                    component: <h4>Hey There - Requests</h4>
                 }
             ]
         }
     }
 
-handleTabChange = (title) => {
-console.log('clicked tab', title);
+    handleTabChange = (title) => {
+        const tabs = this.state.tabs;
 
-}
+        tabs.map(tab => {
+            if (tab.title == title) {
+                tab.active = true
+            } else {
+                tab.active = false
+            }
+        })
+
+        this.setState({ tabs });
+    }
+
     render() {
         return (
-            <div className="dashboard">
+            <div className='dashboard'>
                 <TabNav handleClick={(title) => this.handleTabChange(title)} tabs={this.state.tabs} />
             </div>
         )
     }
+
 }
+
 export default Dashboard;
