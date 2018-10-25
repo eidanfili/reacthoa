@@ -2,54 +2,54 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 import { FormTitle } from '../formTitle';
-import { FormInput, FormButton } from '../formFields';
+import { FormInput, FormButton, FormTextArea } from '../formFields';
 import TextLink from '../textlinks';
 
 class NewNewsletterForm extends Component {
     render() {
+
         const { handleSubmit } = this.props;
+
         return (
-            <form onSubmit={handleSubmit} className='sign-in-form'>
-                <FormTitle className="sign-in-form__title" text="login" />
+            <form onSubmit={handleSubmit} className="new-newsletter-form">
+                <FormTitle className="new-newsletter-form__title" text="New Newsletter" />
                 <Field
-                    className="sign-in-form__email"
-                    placeholder="email"
-                    component={FormInput}
-                    name="email"
-                    type="email"
-                    title="Email"
-                />
-                <Field
-                    className="sign-in-form__password"
-                    placeholder="password"
-                    name="password"
-                    type="password"
-                    title="password"
+                    className="new-newsletter-form__newsletter-title"
+                    placeholder="Newsletter Title"
+                    name="title"
+                    type="text"
+                    title="Newsletter Title"
                     component={FormInput}
                 />
-
                 <Field
-                    className="sign-in-form__login"
-                    placeholder="login"
-                    name="login"
-
-                    title="login"
+                    className="new-newsletter-form__body"
+                    placeholder="Newsletter Body"
+                    name="body"
+                    type="text"
+                    title="Body"
+                    component={FormTextArea}
+                />
+                <Field
+                    className="new-newsletter-form__submit"
+                    small={true}
+                    danger={true}
+                    name="submit"
+                    type="submit"
+                    title="Submit"
                     component={FormButton}
                 />
-                <div className="sign-in-form__text-links">
-                    <TextLink
-                        to='/forgot'
-                        text="forgot password"
-                    />
-
-                    <TextLink
-                        to='/signup'
-                        text="not a member? register here"
-                    />
-                </div>
+                <Field
+                    className="new-newsletter-form__cancel"
+                    small={true}
+                    name="cancel"
+                    type="button"
+                    title="Cancel"
+                    component={FormButton}
+                    onClick={this.props.onCancel}
+                />
 
             </form>
-        )
+        );
     }
 }
 

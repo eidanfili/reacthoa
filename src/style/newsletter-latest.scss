@@ -1,7 +1,8 @@
 .newsletter-latest {
     grid-row: s/e;
     grid-column: latest-s/latest-e;
-     display: grid;
+    
+    display: grid;
     grid-template-rows: [s] 258px [m] 405px [e];
     grid-template-columns: [s] 1fr [e];
     font-family: $font-opensans;
