@@ -1,6 +1,6 @@
 .newsletter-latest {
     grid-row: s/e;
-    grid-column: newsletter-s/newsletter-e;
+    grid-column: latest-s/latest-e;
      display: grid;
     grid-template-rows: [s] 258px [m] 405px [e];
     grid-template-columns: [s] 1fr [e];
@@ -44,5 +44,6 @@
 
         margin-right: 1rem;
         margin-bottom: 1.2rem;
+        
     }
 } 

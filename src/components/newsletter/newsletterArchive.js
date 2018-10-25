@@ -5,11 +5,11 @@ function ArchiveItem({ title, date }) {
         <div className='archive-item archive-items__item'>
             <div className='archive-item__title'>{title}</div>
             <div className='archive-item__date'>
-                {/* { date.getMonth() +1 }
+                { date.getMonth() +1 }
                 /
                 { date.getDate() }
                 /
-                { date.getFullYear() - 2000 } */}
+                { date.getFullYear() - 2000 }
             </div>
         </div>
     )
@@ -23,9 +23,9 @@ class NewsletterArchive extends Component {
                 <div className='newsletter-archive__items archive-items'>
                     {/* newsletter items */}
                     <ArchiveItem title='hey' date={new Date()} />
-                    <ArchiveItem title='Yeet' date='this bitch empty' />
-                    <ArchiveItem title='YALLIN' date='this nigga is eating beans' />
-                    <ArchiveItem title='I NEED  GF' date='rip my life' />
+                    <ArchiveItem title='yeet' date={new Date()} />
+                    <ArchiveItem title='yay' date={new Date()} />
+                    <ArchiveItem title='hi there boi' date={new Date()} />
                 </div>
             </div>
         )

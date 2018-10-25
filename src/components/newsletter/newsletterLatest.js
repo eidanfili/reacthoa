@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
+import Button from '../button';
 
-    
 
-function Button({callback, text, icon, className}) {
-    if(icon) {
-        return (
-            <a onClick={callback} className={`${className} button`}>
-                <i className={icon}></i>
-            </a>
-        )
-    }
-    
-}
 
 class NewsletterLatest extends Component {
 
     handleEdit = () => {
         console.log('yeet');
     }
-    
+
     render() {
         const { title, body, imageURL } = this.props;
         return(
